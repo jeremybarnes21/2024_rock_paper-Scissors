@@ -2,12 +2,23 @@
     const loseMessage = alert(`Your ${playerSelection} lost to the computer's ${computerChoice}`);
     const winMessage = alert(`You won! Your ${playerSelection} beat the computer's ${computerChoice}`);
     const tryAgainMessage = alert(`You picked ${playerSelection}. That is not an option. Try again.`);*/
-const outcomes = {
+
+    const outcomes = {
         'rock': { 'rock': 'draw', 'paper': 'lose', 'scissors': 'win' },
         'paper': { 'rock': 'win', 'paper': 'draw', 'scissors': 'lose' },
         'scissors': { 'rock': 'lose', 'paper': 'win', 'scissors': 'draw' }
     };
+
+let playerScore = 0;
+let computerScore = 0;
+
 const playButton = document.querySelector('.play-button');
+const scoreDiv = document.querySelector('#score-display');
+const selectionButtons = document.querySelectorAll('.player-selection');
+
+const scoreDisplay = document.createElement('p')
+scoreDisplay.textContent = `${playerScore} - ${computerScore}`;
+scoreDiv.appendChild(scoreDisplay);
 
 function getComputerChoice(){
     let choices = ["rock","paper","scissors"];
@@ -21,8 +32,6 @@ function getPlayerSelection(){
     console.log(playerSelection);
     return playerSelection;
 }
-
-
 
 function playRound() {
     let computerChoice = getComputerChoice();
@@ -57,5 +66,7 @@ function playGame(){
 
 
 
-playButton.addEventListener("click", playGame);
+selectionButtons.forEach(button => {
+    button.addEventListener("click", playRound);
+});
 
