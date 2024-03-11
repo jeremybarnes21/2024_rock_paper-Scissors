@@ -1,18 +1,16 @@
-/*const drawMessage = alert(`You both selected ${computerChoice}. It is a draw.`);
-    const loseMessage = alert(`Your ${playerSelection} lost to the computer's ${computerChoice}`);
-    const winMessage = alert(`You won! Your ${playerSelection} beat the computer's ${computerChoice}`);
-    const tryAgainMessage = alert(`You picked ${playerSelection}. That is not an option. Try again.`);*/
+import { outcomes } from './modules/outcomes.js';
+console.log(outcomes);
 
-    const outcomes = {
+    /*const outcomes = {
         'rock': { 'rock': 'draw', 'paper': 'lose', 'scissors': 'win' },
         'paper': { 'rock': 'win', 'paper': 'draw', 'scissors': 'lose' },
         'scissors': { 'rock': 'lose', 'paper': 'win', 'scissors': 'draw' }
-    };
+    };*/
 
 let playerScore = 0;
 let computerScore = 0;
 
-const playButton = document.querySelector('.play-button');
+//const playButton = document.querySelector('.play-button');
 const scoreDiv = document.querySelector('#score-display');
 const scoreDisplay = document.createElement('p')
 const resultsDiv = document.querySelector('#results-display');
@@ -48,7 +46,7 @@ function displayResetButton(){
 function resetScore(){
     playerScore = 0;
     computerScore = 0;
-    coreDisplay.textContent = `${playerScore} - ${computerScore}`;
+    ScoreDisplay.textContent = `${playerScore} - ${computerScore}`;
     scoreDiv.appendChild(scoreDisplay);
 }
 
