@@ -28,7 +28,6 @@ function updateScore(){
 }
 updateScore();
 
-
 function checkIfWinner(){
     if (playerScore == 5){
         declarePlayerWinner();
@@ -43,24 +42,27 @@ function checkIfWinner(){
 function displayResetButton(){
     resetBtn.textContent = "Play Again";
     resetBtnDiv.appendChild(resetBtn);
+    resetBtn.className = 'btn btn-primary';
 }
 
 function resetScore(){
     playerScore = 0;
     computerScore = 0;
-    coreDisplay.textContent = `${playerScore} - ${computerScore}`;
+    scoreDisplay.textContent = `${playerScore} - ${computerScore}`;
     scoreDiv.appendChild(scoreDisplay);
+    resultsDiv.removeChild(resultsDisplay);
+    resetBtnDiv.removeChild(resetBtn);
 }
 
 function declarePlayerWinner(){
     resultsDisplay.textContent = 'You won! You are the ultimate champion!';
     resultsDiv.appendChild(resultsDisplay);
 }
+
 function declareComputerWinner(){
     resultsDisplay.textContent = 'You lost. This is why ChatGPT will take your job.';
     resultsDiv.appendChild(resultsDisplay);
 }
-
 
 function getComputerChoice(){
     let choices = ["rock","paper","scissors"];
@@ -100,6 +102,8 @@ function playRound(buttonClicked) {
     updateScore();
     checkIfWinner();
 }
+
+resetBtn.addEventListener('click', resetScore);
 
 
 
